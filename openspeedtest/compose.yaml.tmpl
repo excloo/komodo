@@ -1,0 +1,14 @@
+{{- defineDatasource "deployment" "env:///DEPLOYMENT?type=application/json" -}}
+{{- $deployment := ds "deployment" -}}
+services:
+  openspeedtest:
+    environment:
+      CHANGE_CONTAINER_PORTS: "True"
+      HTTP_PORT: {{ $deployment.routing.backend_port }}
+    image: openspeedtest/latest:v2.0.6
+    {{- if $deployment.labels }}
+    labels:
+      {{- $labels := $deployment.labels | toYAML | strings.TrimSpace }}
+      {{- printf "\n%s" ($labels | strings.Indent 6) }}
+    {{- end }}
+    restart: unless-stopped

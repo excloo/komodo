@@ -1,0 +1,6 @@
+**/*.md
+**/*.tmpl
+.doco-cd.*.yml
+.sops.yaml
+*/*/*.pem
+*/*/compose.yaml

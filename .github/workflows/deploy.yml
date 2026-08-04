@@ -1,0 +1,37 @@
+name: Deploy
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  cancel-in-progress: false
+  group: render-${{ github.ref }}
+
+jobs:
+  render:
+    name: Render
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v7
+      - name: Set up mise
+        uses: jdx/mise-action@v4
+        with:
+          version: 2026.8.1
+      - name: Run checks
+        run: mise run check
+      - name: Render deployments
+        env:
+          CONFIG: ${{ vars.CONFIG }}
+          OP_SERVICE_ACCOUNT_TOKEN: ${{ secrets.OP_SERVICE_ACCOUNT_TOKEN }}
+        run: uv run --no-project .github/scripts/render.py
+      - name: Commit deployments
+        uses: stefanzweifel/git-auto-commit-action@v7
+        with:
+          commit_message: Render deployments [skip ci]
