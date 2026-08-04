@@ -16,13 +16,14 @@ def content_type(path):
 
 
 def encrypt(content, recipient, output_type):
-    injected = subprocess.run(
-        ["op", "inject"],
-        check=True,
-        input=content,
-        stdout=subprocess.PIPE,
-        text=True,
-    ).stdout
+    if "{{ op://" in content:
+        content = subprocess.run(
+            ["op", "inject"],
+            check=True,
+            input=content,
+            stdout=subprocess.PIPE,
+            text=True,
+        ).stdout
     return subprocess.run(
         [
             "sops",
@@ -38,7 +39,7 @@ def encrypt(content, recipient, output_type):
             "/dev/stdin",
         ],
         check=True,
-        input=injected,
+        input=content,
         stdout=subprocess.PIPE,
         text=True,
     ).stdout
