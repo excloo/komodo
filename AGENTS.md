@@ -5,7 +5,7 @@
 - Keep each service implementation in `services/<service>/`.
 - Put generated deployment artifacts in `deployments/<target>/<service>/`.
 - Keep repository tooling generic; adding a service must not require changing shared workflow logic.
-- Treat `deployments/` and `.doco-cd.<target>.yml` as pipeline output.
+- Treat `deployments/` and `.doco-cd.<target>.yaml` as pipeline output.
 
 ## Secrets
 
@@ -18,6 +18,7 @@
 
 - Keep Python helpers and constants sorted; keep `main()` and its execution guard last.
 - Sort mise tools, tasks, workflow structure, Renovate rules, and Prek hooks consistently with the homelab repository.
+- Use `.yaml`, never `.yml`.
 - Prefer direct code and standard tools over repository-specific abstractions.
 
 ## Verification

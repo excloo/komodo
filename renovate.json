@@ -22,7 +22,7 @@
     {
       "description": "Group Docker image updates",
       "groupName": "Docker images",
-      "matchManagers": ["docker", "docker-compose"]
+      "matchDatasources": ["docker"]
     },
     {
       "description": "Group GitHub Actions updates",

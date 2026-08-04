@@ -78,7 +78,6 @@ def render_deployment(config, deployment, target, output_root, resolve_secrets):
                 content_type = {
                     ".env": "dotenv",
                     ".yaml": "yaml",
-                    ".yml": "yaml",
                 }.get(destination.suffix, "binary")
                 rendered = encrypt(rendered, target["age_public_key"], content_type)
         elif "op://" in rendered:
@@ -95,10 +94,10 @@ def render_metadata(targets, output_root):
     )
     (output_root / ".sops.yaml").write_text(f"creation_rules:\n{rules}\n")
 
-    for path in output_root.glob(".doco-cd.*.yml"):
+    for path in output_root.glob(".doco-cd.*.yaml"):
         path.unlink()
     for target in targets:
-        (output_root / f".doco-cd.{target['key']}.yml").write_text(
+        (output_root / f".doco-cd.{target['key']}.yaml").write_text(
             f"working_dir: {DEPLOYMENTS_PATH}/{target['key']}\n\n"
             "auto_discovery:\n"
             "  delete: true\n"
