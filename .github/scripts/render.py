@@ -75,10 +75,11 @@ def render_deployment(config, deployment, target, output_root, resolve_secrets):
 
         if template.name.endswith(".secret.tmpl"):
             if resolve_secrets:
-                content_type = {
-                    ".env": "dotenv",
-                    ".yaml": "yaml",
-                }.get(destination.suffix, "binary")
+                content_type = (
+                    "dotenv"
+                    if destination.name == ".env"
+                    else {".yaml": "yaml"}.get(destination.suffix, "binary")
+                )
                 rendered = encrypt(rendered, target["age_public_key"], content_type)
         elif "op://" in rendered:
             raise ValueError(f"Secret reference in unencrypted output: {destination}")
