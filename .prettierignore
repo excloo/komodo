@@ -1,5 +1,5 @@
-**/*.md
-**/*.tmpl
 .doco-cd.*.yml
 .sops.yaml
+**/*.md
+**/*.tmpl
 deployments/**
