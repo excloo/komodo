@@ -2,10 +2,10 @@
 
 ## Structure
 
-- Keep each service implementation in `<service>/`.
-- Put generated deployment artifacts in `<target>/<service>/`.
+- Keep each service implementation in `services/<service>/`.
+- Put generated deployment artifacts in `deployments/<target>/<service>/`.
 - Keep repository tooling generic; adding a service must not require changing shared workflow logic.
-- Treat generated target directories and `.doco-cd.<target>.yml` as pipeline output.
+- Treat `deployments/` and `.doco-cd.<target>.yml` as pipeline output.
 
 ## Secrets
 

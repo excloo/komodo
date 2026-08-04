@@ -5,7 +5,9 @@ import shutil
 import subprocess
 from pathlib import Path
 
+DEPLOYMENTS_PATH = Path("deployments")
 IDENTITY_PATTERN = re.compile(r"^[a-z0-9]+(?:-[a-z0-9]+)*$")
+SERVICES_PATH = Path("services")
 
 
 def encrypt(content, age_public_key, content_type):
@@ -44,11 +46,11 @@ def output_path(render_path, service_path, template):
 
 
 def render_deployment(config, deployment, target, output_root, resolve_secrets):
-    service_path = Path(deployment["service"])
+    service_path = SERVICES_PATH / deployment["service"]
     if not service_path.is_dir():
         raise FileNotFoundError(f"Service not found: {deployment['service']}")
 
-    render_path = output_root / target["key"] / deployment["service"]
+    render_path = output_root / DEPLOYMENTS_PATH / target["key"] / deployment["service"]
     shutil.copytree(
         service_path,
         render_path,
@@ -87,14 +89,17 @@ def render_deployment(config, deployment, target, output_root, resolve_secrets):
 
 def render_metadata(targets, output_root):
     rules = "\n".join(
-        f"  - age: {target['age_public_key']}\n    path_regex: ^{target['key']}/"
+        f"  - age: {target['age_public_key']}\n"
+        f"    path_regex: ^{DEPLOYMENTS_PATH}/{target['key']}/"
         for target in targets
     )
     (output_root / ".sops.yaml").write_text(f"creation_rules:\n{rules}\n")
 
+    for path in output_root.glob(".doco-cd.*.yml"):
+        path.unlink()
     for target in targets:
         (output_root / f".doco-cd.{target['key']}.yml").write_text(
-            f"working_dir: {target['key']}\n\n"
+            f"working_dir: {DEPLOYMENTS_PATH}/{target['key']}\n\n"
             "auto_discovery:\n"
             "  delete: true\n"
             "  depth: 1\n"
@@ -135,19 +140,9 @@ def main():
     targets = sorted(config["targets"], key=lambda target: target["key"])
     target_by_key = {target["key"]: target for target in targets}
 
-    if output_root == Path("."):
-        for path in Path(".").iterdir():
-            if path.is_dir() and (path / ".generated").exists():
-                shutil.rmtree(path)
-    else:
-        for target in targets:
-            shutil.rmtree(output_root / target["key"], ignore_errors=True)
+    shutil.rmtree(output_root / DEPLOYMENTS_PATH, ignore_errors=True)
 
     render_metadata(targets, output_root)
-    for target in targets:
-        target_path = output_root / target["key"]
-        target_path.mkdir(parents=True, exist_ok=True)
-        (target_path / ".generated").write_text("")
 
     for deployment in sorted(config["deployments"], key=lambda item: item["key"]):
         render_deployment(
