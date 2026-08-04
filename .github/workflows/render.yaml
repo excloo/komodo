@@ -1,37 +1,80 @@
-name: Render
+name: Publish
 
 on:
   push:
     branches:
       - main
+    paths:
+      - .github/oci.Dockerfile
+      - .github/scripts/render.py
+      - .github/workflows/render.yaml
+      - .mise.toml
+      - templates/**
   workflow_dispatch:
 
 permissions:
-  contents: write
+  contents: read
+  packages: write
 
 concurrency:
   cancel-in-progress: false
-  group: render-${{ github.ref }}
+  group: publish-${{ github.ref }}
 
 jobs:
-  render:
-    name: Render
+  check:
+    name: Check
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
         uses: actions/checkout@v7
-      - name: Set up mise
+        with:
+          persist-credentials: false
+      - name: Setup tools
         uses: jdx/mise-action@v4
         with:
           version: 2026.8.1
       - name: Run checks
         run: mise run check
-      - name: Render deployments
+
+  publish:
+    name: Publish ${{ matrix.target.key }}
+    needs: check
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        target: ${{ fromJSON(vars.CONFIG).targets }}
+    env:
+      CONFIG: ${{ vars.CONFIG }}
+      TARGET: ${{ matrix.target.key }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v7
+        with:
+          persist-credentials: false
+      - name: Setup tools
+        uses: jdx/mise-action@v4
+        with:
+          version: 2026.8.1
+      - name: Render
         env:
-          CONFIG: ${{ vars.CONFIG }}
           OP_SERVICE_ACCOUNT_TOKEN: ${{ secrets.OP_SERVICE_ACCOUNT_TOKEN }}
         run: uv run --no-project .github/scripts/render.py
-      - name: Commit deployments
-        uses: stefanzweifel/git-auto-commit-action@v7
+      - name: Login to GHCR
+        uses: docker/login-action@v4
         with:
-          commit_message: Render deployments [skip ci]
+          password: ${{ secrets.GITHUB_TOKEN }}
+          registry: ghcr.io
+          username: ${{ github.actor }}
+      - name: Publish
+        uses: docker/build-push-action@v7
+        with:
+          context: .render/${{ matrix.target.key }}
+          file: .github/oci.Dockerfile
+          labels: |
+            org.opencontainers.image.revision=${{ github.sha }}
+            org.opencontainers.image.source=${{ github.server_url }}/${{ github.repository }}
+          push: true
+          tags: |
+            ghcr.io/${{ github.repository }}-${{ matrix.target.key }}:${{ github.sha }}
+            ghcr.io/${{ github.repository }}-${{ matrix.target.key }}:main

@@ -1,8 +1,0 @@
-working_dir: deployments/au-hsp
-
-auto_discovery:
-  delete: true
-  depth: 1
-  enabled: true
-  remove_images: true
-  remove_volumes: false

@@ -1,5 +1,2 @@
-.doco-cd.*.yaml
-.sops.yaml
 **/*.md
 **/*.tmpl
-deployments/**

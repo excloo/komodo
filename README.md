@@ -4,9 +4,9 @@ Docker Compose service implementations and deployment templates live in this
 repository. The homelab config supplies non-secret deployment instances and
 programmatic 1Password references.
 
-GitHub Actions renders deployments and SOPS-encrypts only secret files with each
-target's age recipient. Doco-cd decrypts and deploys them locally without a
-1Password credential or remote Docker access.
+GitHub Actions renders target-specific OCI packages and SOPS-encrypts every
+deployment file with the target's age recipient. Doco-cd pulls, decrypts, and
+deploys them locally without a 1Password credential or remote Docker access.
 
-Service source lives under `services/`; generated target output lives under
-`deployments/`.
+Service source lives under `templates/services/`. Generated output exists only
+in the pipeline and places each service directly at its OCI artifact root.

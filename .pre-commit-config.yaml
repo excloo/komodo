@@ -27,6 +27,14 @@ repos:
         entry: mise exec -- actionlint
         files: ^\.github/workflows/.*\.yaml$
         language: system
+      - id: hadolint
+        name: Lint Dockerfiles
+        entry: mise exec -- hadolint
+        language: system
+        args:
+          - --failure-threshold
+          - error
+        files: (^|/)(Dockerfile(?:\..*)?|[^/]+\.Dockerfile)$
       - id: prettier
         name: Check formatting
         entry: mise exec -- prettier --check

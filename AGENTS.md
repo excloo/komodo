@@ -2,16 +2,16 @@
 
 ## Structure
 
-- Keep each service implementation in `services/<service>/`.
-- Put generated deployment artifacts in `deployments/<target>/<service>/`.
+- Keep each service implementation in `templates/services/<service>/`.
+- Put each rendered service at `/<service>/` in its target-specific OCI package.
 - Keep repository tooling generic; adding a service must not require changing shared workflow logic.
-- Treat `deployments/` and `.doco-cd.<target>.yaml` as pipeline output.
+- Treat `.render/` and OCI packages as pipeline output.
 
 ## Secrets
 
 - Keep 1Password access in GitHub Actions; never give doco-cd a 1Password credential.
-- Use `*.secret.tmpl` only for outputs that must be injected and SOPS-encrypted.
-- Never write injected plaintext secrets to disk, logs, artifacts, or commits.
+- SOPS-encrypt every rendered deployment file except `.doco-cd.yaml` discovery metadata.
+- Never write injected plaintext secrets to disk, logs, packages, or commits.
 - Keep one age recipient per deployment target.
 
 ## Style
@@ -24,4 +24,4 @@
 ## Verification
 
 - Run `mise run check` before handoff.
-- Shadow-render to `.render/` before changing generated deployment artifacts.
+- Inspect every OCI layer before changing package visibility.
