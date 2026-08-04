@@ -1,59 +1,44 @@
 services:
-    oauth2-proxy:
-        environment:
-            OAUTH2_PROXY_CLIENT_ID: ENC[AES256_GCM,data:lASAQL+WoGr+/Ac=,iv:EEirSV5TEY1moXGQbk79CPeNdnIRJ5PzS1jbhHeGtJ8=,tag:A2/Ic5WTktwcrXzLy6auyw==,type:str]
-            OAUTH2_PROXY_CLIENT_SECRET: ENC[AES256_GCM,data:AGMawienW/tmEStrCGVVH1DIp9m6rurJhBC9o77eTiE=,iv:wnyXpjI49f09rS4c05lvANPKsctVqFTtd+lIVpCVdzE=,tag:gQUQ0Zh2NcfrfHCkKDmW3g==,type:str]
-            OAUTH2_PROXY_CODE_CHALLENGE_METHOD: ENC[AES256_GCM,data:U2sPWw==,iv:O90sWxNTRF7dfK/2NvOPalxQvoftSuVb8tkD0IvFBDA=,tag:FLqo9u5uvHlGtGwjuZP7JA==,type:str]
-            OAUTH2_PROXY_COOKIE_CSRF_PER_REQUEST: ENC[AES256_GCM,data:hPAKRQ==,iv:96IMsInjnJwgYEAQDLTPaZedcyz7Nflpt2oK+cN2Z3A=,tag:gNfCUQqejbLrYCOLk4Kz0Q==,type:str]
-            OAUTH2_PROXY_COOKIE_CSRF_PER_REQUEST_LIMIT: ENC[AES256_GCM,data:5k0=,iv:e5rsLgVgz9CpwodRsZQj2zjQEvGjP47yTeLcWNOhJj0=,tag:nENUIw69zc3Zn9kb2IAIgw==,type:int]
-            OAUTH2_PROXY_COOKIE_DOMAINS: ENC[AES256_GCM,data:v5lqskp7x6DcbiRDGvBBXV0H,iv:m4k6QchcebTJLFvxE6l8GKjtIbQALhthjSqqpuKE7Pc=,tag:kAGp4oobk8OKGVF1+IIDMQ==,type:str]
-            OAUTH2_PROXY_COOKIE_SAMESITE: ENC[AES256_GCM,data:Mzkn,iv:imkQFTWFdPWp6yamdvvbSJiTFRN0DAxV0xt1G1V5o5s=,tag:jmWj8b6oIrC0rE0j0w0PnA==,type:str]
-            OAUTH2_PROXY_COOKIE_SECRET: ENC[AES256_GCM,data:+MuUxjhvvBDZYgYsZ4IP8W3Lmv03Y9vNcJlP0YhicQU=,iv:8pIkZSySBT13OxcyemJOShQxwUFhGI3PTATSZwG5E+s=,tag:rKgwruiySqVNWmRJqrkelA==,type:str]
-            OAUTH2_PROXY_COOKIE_SECURE: ENC[AES256_GCM,data:a8gPeA==,iv:rNS6KqKjAfPg1g0c/GEp3BaTNZA5FjPmNvJmzcEodgc=,tag:foNBGtGzFuauJgU56P1nOw==,type:str]
-            OAUTH2_PROXY_EMAIL_DOMAINS: ENC[AES256_GCM,data:2Q==,iv:03CF/JeYSWcVCmz4vIcHthR+N0B70WHBDHDNzOGVgws=,tag:Z85i8ZycoO6idO9NZMdSog==,type:str]
-            OAUTH2_PROXY_HTTP_ADDRESS: ENC[AES256_GCM,data:NMjLVvvClfpy8zFn,iv:eoGNqk/r9MSDE9ahECqzM6k/yt+Ac1SR0VEgghiXuWA=,tag:33YOG6kkyvx1THLb+aQHWQ==,type:str]
-            OAUTH2_PROXY_OIDC_ISSUER_URL: ENC[AES256_GCM,data:diCVcdWXwSmSWYZza+iKk7981iQC,iv:gOTH9Y1/2At7enA1mfoDMEqbirwVIw8Vt2GT5bmqn10=,tag:Vj6HtG3T4jceHxaXYjZLhA==,type:str]
-            OAUTH2_PROXY_PROVIDER: ENC[AES256_GCM,data:9y+PIg==,iv:SurkrPd/FU8vuFuZ3b+gK/Sz2NLi1dxOctSZ3RpSSeY=,tag:50oxF2EtzW7gMiveyZ99GQ==,type:str]
-            OAUTH2_PROXY_PROVIDER_DISPLAY_NAME: ENC[AES256_GCM,data:98hOvCvt7Qlo,iv:OK6XBAfngOtAOzDHU65zerOlIrjDKjjEnpYwZPCrWhg=,tag:DgMJYN308hXOeo6KXCQPRQ==,type:str]
-            OAUTH2_PROXY_REDIRECT_URL: ENC[AES256_GCM,data:hJgWNBJ0opIQg2ICDS6hWnOU6686xWoB+h4GbUacjXwM0eHjQHliTHkupE8yVVKm3nEtpkce,iv:lke3kuC+GyfqWYSQoj6pFhz6bAIHQHVye4sF2Gf8Vng=,tag:1hRnSnGfA66toHh6GI9ggg==,type:str]
-            OAUTH2_PROXY_REVERSE_PROXY: ENC[AES256_GCM,data:HUvlCA==,iv:82R8UKRMwWWX0FaK7uYuUigjMmuL7R6cCo5tngjYCTw=,tag:emxZToNi/eRk8dLVfAQ/0g==,type:str]
-            OAUTH2_PROXY_SET_XAUTHREQUEST: ENC[AES256_GCM,data:jLAevQ==,iv:L8MXFh823hSy5nO/F69pNrciri97Ba10HP8Wz2N2aQQ=,tag:dJdkVWnaZ+MCNX4GgK/8cw==,type:str]
-            OAUTH2_PROXY_SILENCE_PING_LOGGING: ENC[AES256_GCM,data:a/nzDg==,iv:nLsOhJ9xSEDzIrYPg+0o1lJqKkrhvpiJad5pl659JHo=,tag:4h5wxeTGmGktXHWldNNnfA==,type:str]
-            OAUTH2_PROXY_SKIP_PROVIDER_BUTTON: ENC[AES256_GCM,data:u6ruKg==,iv:yL1AQI+Q7OmsdikQ7w02VsTTK+3Xbr8vbOEwc1EL6RQ=,tag:ErKX7UagzgwQjm7a2txLbg==,type:str]
-            OAUTH2_PROXY_TRUSTED_PROXY_IPS: ENC[AES256_GCM,data:iVwahlMYlHFf4aRHujI20c5brqJVCh0KcXgrOmdmB0t9hD/8wriAkhGM7K8JGJn8Qbn0nQ==,iv:W7rUkMrWNVLwLwJv9pI9Nej2lbxE6j8ASWZCE6fiDzo=,tag:VjSIh4GOwzjdAZeCQweAUA==,type:str]
-            OAUTH2_PROXY_UPSTREAMS: ENC[AES256_GCM,data:Pa1I8UFgTRLHjh1P,iv:MOWol2UoRJxT9/Trdjn5PYtWYB2JWtOLYF2FHJ8RpGM=,tag:MtZIPoQUQgM5kabGdKWJ/g==,type:str]
-            OAUTH2_PROXY_WHITELIST_DOMAINS: ENC[AES256_GCM,data:1UtHw5dmn9Ngig5tSGYZJTba,iv:Q9ZYH+VYGViJ30lLNHNvOBU19qiA6bv5boKK2Ft3MTU=,tag:G5pa//0G5V0E0pYPRrApCA==,type:str]
-        image: ENC[AES256_GCM,data:NIKeBAtpvYmbFiNjoKV8khsO2mdbOcyxad6zph3Ig7udcGWkUnKq9pJsyVoThsaV,iv:BMRb8tLP2gzYDr5ZRWojlb3ks7uyNf8QOB/734zcxYg=,tag:ST/reLCDNt2gN8KfXaWZRg==,type:str]
-        labels:
-            traefik.enable: ENC[AES256_GCM,data:QYJewA==,iv:YUhG07TKshOYAEPbyDKr1BcYKdM7314a9c5hBQ3QU60=,tag:4PtaWLzPqHYi/5Z6R1RcWg==,type:str]
-            traefik.http.middlewares.oauth2-forward-auth.forwardauth.address: ENC[AES256_GCM,data:wznKVOQgtVH6h523iD70iSfOBKtW,iv:+6TkESwU59RTCujWcgL1KeC2vNxvMz/2Fnd4k0n2STk=,tag:xYNvCJvX5NiZOrdttVWUVg==,type:str]
-            traefik.http.middlewares.oauth2-forward-auth.forwardauth.authResponseHeaders: ENC[AES256_GCM,data:L5n4ODxkFWu384rFOl+QMsLC5EH/UwGMOKMx5l6B0lbL0mNrLIpX4FGPtkV3HdI+7Y9lYEzESHDEXZ7edUV43j4jS68ieCFyEqs=,iv:tEamitb2JfBTq+CJYL1mbhrfDMMvXkSCyjgUH9nFJas=,tag:ejXOZzoNKkuaj+kQyzv++g==,type:str]
-            traefik.http.middlewares.oauth2-forward-auth.forwardauth.trustForwardHeader: ENC[AES256_GCM,data:7ORiPw==,iv:YMfbhMJDKBdydNfpTjdBQmDHE5MTTqDBjeylsNO+YjA=,tag:0PMzwUQbaA3rxobTsUuEIw==,type:str]
-            traefik.http.routers.oauth2-proxy-http.entrypoints: ENC[AES256_GCM,data:gNU5,iv:zkKqWebFtaDIi469YzIRUMlY7/hdh8OjvHpGz+Krm/M=,tag:PgYwWKcApEjc0gUfOfKlOQ==,type:str]
-            traefik.http.routers.oauth2-proxy-http.middlewares: ENC[AES256_GCM,data:rVIdiTFpTdUqMXBbgzWMsn2ubWMZz7sCfZu+/h6v+sKfU406Hd6F6oZlSGhe,iv:kbA3lTAwl+H0td5iyUa1cCtoYtocUW9BCZ9Z/o4go18=,tag:MiQWbztYogsKFcQO0OIp/g==,type:str]
-            traefik.http.routers.oauth2-proxy-http.rule: ENC[AES256_GCM,data:y9TAUcXIoG4apxA0jAsgKn9SsHeGV86URhui9is0+Kv2MFe6eGM=,iv:OsZAgPWf7VkgX7U4kGg+3nbZZ3yd9KUta9tf/DisFr0=,tag:9v2QIc4nW9UAwnROL0W0xg==,type:str]
-            traefik.http.routers.oauth2-proxy-http.service: ENC[AES256_GCM,data:HwFWFMpYPWpq8dL4,iv:FAZifaltw5ICDfb1ZnQx09V+m5QgCPG53vBYnDq/sg0=,tag:ccKpHw3Ol2dUDw43Yf0Awg==,type:str]
-            traefik.http.routers.oauth2-proxy.entrypoints: ENC[AES256_GCM,data:swkfgyU14Kuf,iv:jKwmkjDDxd8QsN0a8MvigdcTh/gxr+shqevRb/u8wXE=,tag:dord6JK5yDenkRGisSeCNw==,type:str]
-            traefik.http.routers.oauth2-proxy.middlewares: ENC[AES256_GCM,data:BO0eOyorEWV78+0GBT3SSMXBR+k=,iv:HQUVFngh2w6UlS0lu+5XL0gqw/DKXp02ZE34YSoDuLE=,tag:xci1nPlpTEfzIeVgUdcQig==,type:str]
-            traefik.http.routers.oauth2-proxy.rule: ENC[AES256_GCM,data:ObBhHziFxJHkXx/qyTuzWLl7dhLXzRRLQANeu44leUiijLvbNFA=,iv:h+1MGGpzrWvC+Db71ibL/NnkNlA/Q91m0u0/kw9bWG4=,tag:KEeZk/KI5VYoA13E19GRyw==,type:str]
-            traefik.http.routers.oauth2-proxy.service: ENC[AES256_GCM,data:HxIcUlFeJE+6oFgw,iv:qiF94ZQkBoO0QCkKqste4uccy91jgLd7pEzYb4PKJyM=,tag:RX8IjU7ACS1s9rZ31nbNXQ==,type:str]
-            traefik.http.routers.oauth2-proxy.tls.certresolver: ENC[AES256_GCM,data:XX7+4WskgVdm6Q==,iv:hHoyCbr9qRrLhKv3esew3/g/+wf64eI54h192CdM98c=,tag:jGuSbQMRcLqU4aJZ4TeEkA==,type:str]
-            traefik.http.services.oauth2-proxy.loadbalancer.server.port: ENC[AES256_GCM,data:FzULYA==,iv:zaIRmw/ZvwhpQKep69svX3d3gn75noNoQDi6soutqJU=,tag:yEs0gRQtsR6fjb9k+WMFPw==,type:str]
-        ports:
-            - ENC[AES256_GCM,data:tLnXQLl3NcFmSCZblB6d9bk+YA==,iv:PNGx8N/kq12bdcxE2f09beDrIrBJWQX9RhliLX6QD9Q=,tag:E7Y6bjpvTQT9dcXSfR/ufQ==,type:str]
-        restart: ENC[AES256_GCM,data:Y75lKKTpA0qYoPnyQG0=,iv:oxBhks8yOaIS1ffD1UVAKKxaHtzMldPVg58KgNQDADY=,tag:8WNkRLodayBMQBOSfHSl0w==,type:str]
-sops:
-    age:
-        - enc: |
-            -----BEGIN AGE ENCRYPTED FILE-----
-            YWdlLWVuY3J5cHRpb24ub3JnL3YxCi0+IFgyNTUxOSBCcFp5SEtwSW9YWmVlalFH
-            UUJQWDl0YVBWMXFHbDRLNy9RVWNuUU1SVno4CldrUkQzUGRNSFZhQkg1UERPVVBV
-            U0tFclY3b0ptTjRKc1VzMkxpYVM0UEEKLS0tIHVscWJqZWtERmd1TlBOS3NjQ2R1
-            M2pIaTg1Nm9BVHMraXJEMmh3ZXIvRE0KpsnVJiakQQm3NmC4Oso0XsC/hg25uDcx
-            3D2zzkDs74o1DBHF9sjoif52/e1wV2dSRV27LCYGIWmC8l+EKy6fhQ==
-            -----END AGE ENCRYPTED FILE-----
-          recipient: age1heqmzgcj5d2fe7c96leq9kqm6vc4mqhpn94d685q3px9utzlq98q2tv268
-    lastmodified: "2026-07-30T21:31:55Z"
-    mac: ENC[AES256_GCM,data:g6RSHBtSgzPobczDpvP2dyu5FUwxvEVGFpUeAAy2e51tJKrzN8mJwDVxVJqPi93Ejt67KWTQC97oowcqu3d1tQXnfgWM3cxBURS7HaCBYAl2kAqwju0kmRr4q+h/pTaQqw4rMzWMEfKZm/KQHBYu0AfxxIZiiShTqdafHC7xQPc=,iv:zWnqbrYHVVXZ3qry0bFeFMcFombwuOpX24TRAgDSadw=,tag:+56qss7EDFIF0+UOYtZzSA==,type:str]
-    unencrypted_suffix: _unencrypted
-    version: 3.13.3
+  oauth2-proxy:
+    environment:
+      OAUTH2_PROXY_CLIENT_ID: ${OAUTH2_PROXY_CLIENT_ID}
+      OAUTH2_PROXY_CLIENT_SECRET: ${OAUTH2_PROXY_CLIENT_SECRET}
+      OAUTH2_PROXY_CODE_CHALLENGE_METHOD: S256
+      OAUTH2_PROXY_COOKIE_CSRF_PER_REQUEST: "true"
+      OAUTH2_PROXY_COOKIE_CSRF_PER_REQUEST_LIMIT: 10
+      OAUTH2_PROXY_COOKIE_DOMAINS: .hsp.au.excloo.dev
+      OAUTH2_PROXY_COOKIE_SAMESITE: lax
+      OAUTH2_PROXY_COOKIE_SECRET: ${OAUTH2_PROXY_COOKIE_SECRET}
+      OAUTH2_PROXY_COOKIE_SECURE: "true"
+      OAUTH2_PROXY_EMAIL_DOMAINS: "*"
+      OAUTH2_PROXY_HTTP_ADDRESS: 0.0.0.0:4180
+      OAUTH2_PROXY_OIDC_ISSUER_URL: https://id.excloo.com
+      OAUTH2_PROXY_PROVIDER: oidc
+      OAUTH2_PROXY_PROVIDER_DISPLAY_NAME: Excloo ID
+      OAUTH2_PROXY_REDIRECT_URL: https://oauth2-proxy.hsp.au.excloo.dev/oauth2/callback
+      OAUTH2_PROXY_REVERSE_PROXY: "true"
+      OAUTH2_PROXY_SET_XAUTHREQUEST: "true"
+      OAUTH2_PROXY_SILENCE_PING_LOGGING: "true"
+      OAUTH2_PROXY_SKIP_PROVIDER_BUTTON: "true"
+      OAUTH2_PROXY_TRUSTED_PROXY_IPS: 127.0.0.1/32,::1/128,172.16.0.0/12,100.77.227.122/32
+      OAUTH2_PROXY_UPSTREAMS: static://202
+      OAUTH2_PROXY_WHITELIST_DOMAINS: .hsp.au.excloo.dev
+    image: quay.io/oauth2-proxy/oauth2-proxy:v7.15.3-alpine
+    labels:
+      traefik.enable: "true"
+      traefik.http.middlewares.oauth2-forward-auth.forwardauth.address: http://127.0.0.1:4180
+      traefik.http.middlewares.oauth2-forward-auth.forwardauth.authResponseHeaders: X-Auth-Request-Email,X-Auth-Request-Preferred-Username,X-Auth-Request-User
+      traefik.http.middlewares.oauth2-forward-auth.forwardauth.trustForwardHeader: "true"
+      traefik.http.routers.oauth2-proxy-http.entrypoints: web
+      traefik.http.routers.oauth2-proxy-http.middlewares: internal-only@docker,redirect-to-https@docker
+      traefik.http.routers.oauth2-proxy-http.rule: Host(`oauth2-proxy.hsp.au.excloo.dev`)
+      traefik.http.routers.oauth2-proxy-http.service: oauth2-proxy
+      traefik.http.routers.oauth2-proxy.entrypoints: websecure
+      traefik.http.routers.oauth2-proxy.middlewares: internal-only@docker
+      traefik.http.routers.oauth2-proxy.rule: Host(`oauth2-proxy.hsp.au.excloo.dev`)
+      traefik.http.routers.oauth2-proxy.service: oauth2-proxy
+      traefik.http.routers.oauth2-proxy.tls.certresolver: cloudflare
+      traefik.http.services.oauth2-proxy.loadbalancer.server.port: "4180"
+    ports:
+      - 127.0.0.1:4180:4180
+    restart: unless-stopped

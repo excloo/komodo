@@ -1,35 +1,20 @@
 services:
-    openspeedtest:
-        environment:
-            CHANGE_CONTAINER_PORTS: ENC[AES256_GCM,data:c+iIXQ==,iv:3ZdQ5Fcz986/ClGm/zTdrVgpGO31Xba6yGt/cNp4du0=,tag:NiYD/wet23cXVFIAccbRoQ==,type:str]
-            HTTP_PORT: ENC[AES256_GCM,data:xjYiiJw=,iv:NQ9e+NezEyD1NdopgorihgegMERBa0HXJrJ2YSJP+ks=,tag:Qag9aIOYuuG/+FM35dPNjw==,type:int]
-        image: ENC[AES256_GCM,data:wkaFNq4/39bQUJGE5xfN/COYGkDr21C/rQXJ,iv:5v7eH4TbQstSypGs4qGljA/XIiaXpsfCtBtnEySNyPA=,tag:cTdJWnh21KVPEJ96h77dyQ==,type:str]
-        labels:
-            traefik.enable: ENC[AES256_GCM,data:GEkRpQ==,iv:YPlIQROnM37YEYsoPgBtFY01jHMS+LQHP7RIEJWi0KA=,tag:LWmorpfVhpTZO2C2D6jn/Q==,type:str]
-            traefik.http.middlewares.openspeedtest-buffering.buffering.maxrequestbodybytes: ENC[AES256_GCM,data:s3Q76O9fIxI=,iv:OuvCBJm2+BGjrdmPQdnL9lcdtwWCYgeX7wampM5BKic=,tag:wpizA8ATccCuRfulZa+slg==,type:str]
-            traefik.http.routers.openspeedtest-http.entrypoints: ENC[AES256_GCM,data:vjaK,iv:srhvMgVf/OVPt5IX5657WKF7nw7BzCYmwXmeIqGHVWs=,tag:g7TM3HtwiFmSHk2NRzZpwQ==,type:str]
-            traefik.http.routers.openspeedtest-http.middlewares: ENC[AES256_GCM,data:4xbquO/UWfppyl2RCS0gii4uWDuQwY1qf1qz0MT8GAjVtYIeQUEiOVAS+qeC,iv:xwN/EZYD7RBfpXGGq00ZTwDE6IuniRJI4B2t1hNTBIU=,tag:1tCNcKSeJxCSneBkWY8VsA==,type:str]
-            traefik.http.routers.openspeedtest-http.rule: ENC[AES256_GCM,data:Khzy0powR5QV5RONe2DI5FI+lnCfRL2EdC1Ed5ywqbxxodzI+C5g,iv:SnjBT+U9je1Vs1ESdeAZzlMcVxP0ilv7D1vxR9D30ho=,tag:MZFe3VocV2659dYo68N05g==,type:str]
-            traefik.http.routers.openspeedtest-http.service: ENC[AES256_GCM,data:7WUm46WKt4wdY/HSRw==,iv:8eA9L/8FdDIKqfW0FRSIJ0LUTnaRouKp49jB4jbVFFs=,tag:D6DVn5jFJxzfJg7BjgglHw==,type:str]
-            traefik.http.routers.openspeedtest.entrypoints: ENC[AES256_GCM,data:wO8BCYRe5m0J,iv:srs/XeCes2k9HgsZkT07k4ntrZAanu3oxpFs7ZPnGYI=,tag:2KzmbQ592cMIc5f45DwJ3g==,type:str]
-            traefik.http.routers.openspeedtest.middlewares: ENC[AES256_GCM,data:XGOdfjvKuI0Lp1F1UICuSKIMRq3xAT67AruuhcowMl1LgTbmPPPpfTaKRY0auenjn3Nf,iv:Pe4UDNau0rzga0K79bs99D3P2MDwQk5SCJZ2DJQeKKU=,tag:dWa3zrRlBWUI3Ye3bJ5S1Q==,type:str]
-            traefik.http.routers.openspeedtest.rule: ENC[AES256_GCM,data:mN4W8U890eZvCpTvn9F7pTpELu1WeLdyNgeALS+lHbtRp0mJySWQ,iv:QdDYqQdcs5VXBT2MJ+D+/3VLwWKuzdeD3ggQwtPbkRM=,tag:oPlSjqiuv48LIVN6ABPbdw==,type:str]
-            traefik.http.routers.openspeedtest.service: ENC[AES256_GCM,data:WCXnzoBhBYzs465trA==,iv:DCO3duzD/9jAPl6C4RIlBdLr6h9jgnlmqXIz0ZFhznM=,tag:ApWP6wdicy2S06Nh3JHX5g==,type:str]
-            traefik.http.routers.openspeedtest.tls.certresolver: ENC[AES256_GCM,data:6iyyVsDAlAlI2Q==,iv:4szjQVZhwgcPoNTeZIRyKmYRGpBYfnEvWqve4lzr9FQ=,tag:SpwLuAA7DOTWMp/6DtETQw==,type:str]
-            traefik.http.services.openspeedtest.loadbalancer.server.port: ENC[AES256_GCM,data:Q9WmXFg=,iv:kbyu54NWjsHlC9hwBk680WAQaDYiuXyjdvGTZCC1WY8=,tag:B6caaqiSlIcsWx1kUP/tNQ==,type:str]
-        restart: ENC[AES256_GCM,data:IlGz66wpvGY5N+G5shY=,iv:XCFjjmH0w39Gjo4nGh49LjvGctYRBoVG6noToJIb4Ug=,tag:DbgFZ2v9dx3FVmWRsT831w==,type:str]
-sops:
-    age:
-        - enc: |
-            -----BEGIN AGE ENCRYPTED FILE-----
-            YWdlLWVuY3J5cHRpb24ub3JnL3YxCi0+IFgyNTUxOSBURFdTSEZHblNNYzlCemNv
-            dEc2UzRsanRaZHc5TnJxZk5zSVkxaCs5ODBjCmFYam1WeXNUeHJ4b2tnWU5jaW83
-            RThJZGFicTl2Z2xKSUN0YXp4UThiczgKLS0tIHVkMSs2MDJuRUNqQkJZU25FMjl6
-            dllNLysxeE1BN2haRjNXOUNJZWdvd0EK8xvlILpV4twXT7+PpdhQO7Jr5fIYhQ74
-            NNkEgtC3B0qJb+FhdGwxeimpYfW/058FUItm5lxb5Eax5c86gw3M9g==
-            -----END AGE ENCRYPTED FILE-----
-          recipient: age1heqmzgcj5d2fe7c96leq9kqm6vc4mqhpn94d685q3px9utzlq98q2tv268
-    lastmodified: "2026-07-23T23:16:23Z"
-    mac: ENC[AES256_GCM,data:ZWyF+CyalIo1GBob8GTDhclvJon4AhojpRY+gQmyGxrM+5oINVcZqBNtlmmjpkhMuYMIxyJn1flFxf5FteYwtD2vFrBWv9IqdjFdqSgo0A4dnRInoRMkNF1jP9FUjPVo37CgHf4JxmY4DoogA4RALB+5wZFVPdBIy0b2hfKLkW4=,iv:/V5gShAplSrtnrZpktn85lQOOSlk50c/nRPtm9AqZNQ=,tag:ZHq/HPhh8k7/9UPzjbjJhg==,type:str]
-    unencrypted_suffix: _unencrypted
-    version: 3.13.2
+  openspeedtest:
+    environment:
+      CHANGE_CONTAINER_PORTS: "True"
+      HTTP_PORT: 30116
+    image: openspeedtest/latest:v2.0.6
+    labels:
+      traefik.enable: "true"
+      traefik.http.middlewares.openspeedtest-buffering.buffering.maxrequestbodybytes: "36700160"
+      traefik.http.routers.openspeedtest-http.entrypoints: web
+      traefik.http.routers.openspeedtest-http.middlewares: internal-only@docker,redirect-to-https@docker
+      traefik.http.routers.openspeedtest-http.rule: Host(`openspeedtest.hsp.au.excloo.dev`)
+      traefik.http.routers.openspeedtest-http.service: openspeedtest
+      traefik.http.routers.openspeedtest.entrypoints: websecure
+      traefik.http.routers.openspeedtest.middlewares: internal-only@docker,openspeedtest-buffering@docker
+      traefik.http.routers.openspeedtest.rule: Host(`openspeedtest.hsp.au.excloo.dev`)
+      traefik.http.routers.openspeedtest.service: openspeedtest
+      traefik.http.routers.openspeedtest.tls.certresolver: cloudflare
+      traefik.http.services.openspeedtest.loadbalancer.server.port: "30116"
+    restart: unless-stopped

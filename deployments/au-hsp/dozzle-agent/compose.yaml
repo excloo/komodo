@@ -1,36 +1,21 @@
 secrets:
-    dozzle_cert:
-        file: ENC[AES256_GCM,data:/Lk6Wt4MGMmNmxaSRw/9nW4=,iv:xckM0TGi4p5nezYN0lUccwQUXEUnvBBmv5a4JNB5ejw=,tag:13Az5NSZNimvCjn/OQrQYw==,type:str]
-    dozzle_key:
-        file: ENC[AES256_GCM,data:nPAHtoZ3OCxF4l01bMlsWA==,iv:z+0X0RbDj+HZlnHsYYZMDBBvtq6bbr4PEjGzivRqc/0=,tag:hd/duG9xAuUFNvRTcOTwsA==,type:str]
+  dozzle_cert:
+    file: ./dozzle_cert.pem
+  dozzle_key:
+    file: ./dozzle_key.pem
 services:
-    dozzle-agent:
-        command: ENC[AES256_GCM,data:NLW2NLU=,iv:3HwS7Yr8uH6g3eg7XQMRX69sVk+w8arAZ2sGUQupsms=,tag:8wWqBZMH/pFpY0GBAl3wlA==,type:str]
-        environment:
-            DOZZLE_HOSTNAME: ENC[AES256_GCM,data:Ej1J6FRT,iv:Q/PXgoIGajFoLNxyPtdjasfD35v+4vxcjq/Ge6bbqSQ=,tag:+7+9U0bI42zdvaGvqILi7Q==,type:str]
-        image: ENC[AES256_GCM,data:j5/YwIkaBwDVmGxDtqoqUk+uKUEuzQ==,iv:8uesFZP2tAlhr9JXAAJoK68SUPD+H/MQrv50qcdyfmI=,tag:bfjdnQavnjuPu2Z7pNbpiA==,type:str]
-        ports:
-            - ENC[AES256_GCM,data:FpRQFCSe6EsF,iv:rCz7zAnh6R1zLi3p3Q+WVvWSDRN+ydr/BuBj3E2Abhs=,tag:z1lX2pHidWbWHkunAtYbNg==,type:str]
-        restart: ENC[AES256_GCM,data:4GJYrEmB/+7aX1IIpJI=,iv:REdFQ+x5Eknsu5QTxSG14nlj6PMmB3O6saybo+VlpMM=,tag:6Ps52xGQBkUjdwIFN8XGLA==,type:str]
-        secrets:
-            - source: ENC[AES256_GCM,data:4a2Z3HrqmmleAUI=,iv:rs84qQEGloD6RcMFJcPazigr19ngh1Eqk248o1BXHDM=,tag:NJOoLbfwUA2hy3WOKBy1Hg==,type:str]
-              target: ENC[AES256_GCM,data:p/TFgy03NUDhY6GGjEV0MQ==,iv:UMQZwOUaeVZ3EeevG+Vp2kxofG1SucTzunC7FxlKYQs=,tag:whhsxhfVfBRZQO6koW6R4w==,type:str]
-            - source: ENC[AES256_GCM,data:7n/kX/aeuVCJKw==,iv:Ir0d0fpOToCc4swz0vPgY9ocCY8rFnQLF/tRt/mjTc4=,tag:ZunkFgiG3CZG1COn/vy8/g==,type:str]
-              target: ENC[AES256_GCM,data:K37UOb4dCvZb5eFmm3H8,iv:r0qpa1xJXAipPKKkUYNPobSBHeUOd9BxSQFUd+O/M+8=,tag:NSoFogMMmCjIzDXPvU03bA==,type:str]
-        volumes:
-            - ENC[AES256_GCM,data:rdcVcLyZT3oKMD8uaECWpPik+JZjWxunHB36121Naj4DwI/g7ENN7+LE6Cw=,iv:ZoMs1G0XmM+4YH4vCGIQasA3TQL5I+TL2dxX/STqOcY=,tag:GXXXxbN62i/y9pPrxlIpSA==,type:str]
-sops:
-    age:
-        - enc: |
-            -----BEGIN AGE ENCRYPTED FILE-----
-            YWdlLWVuY3J5cHRpb24ub3JnL3YxCi0+IFgyNTUxOSBUSWVnSndEVTF4TTMzSTdl
-            czlKR01IQXJIelJOQ3d1ZmNFM3VudnhySGdrCmg2dGJTZTJJdTBYV0ZCYVZyS0pO
-            SzYzeEpyVllXNkxZYUJGMjNHYmVZNHMKLS0tIEEvMkdKQnZLRGFPcEVLd2drd3ph
-            QmoyT0NiL01NSFBpZ3VZcC9XTlRyOTAKi5rr0B0Eo8AuKn7dQo4J04lO4JFhQNSt
-            QlQaKCaTkIAzQU6GOSJdWYmOVfU2Z74pXQyFfJj0CnE8lHvApHGFVA==
-            -----END AGE ENCRYPTED FILE-----
-          recipient: age1heqmzgcj5d2fe7c96leq9kqm6vc4mqhpn94d685q3px9utzlq98q2tv268
-    lastmodified: "2026-08-02T11:29:00Z"
-    mac: ENC[AES256_GCM,data:kxm+jCjHfS1ZdzPMasTpsfQS6pR/eR6iIHKJ6WMZoy3B3JAfkOO5ZEej5+BxwFfs/JpBNuaUaBL0ENHUPwda8yzvEzpFDWQMhTtPU3scuM0Mc1eQX5bGcK+qJ1vsE/o717EjJCY+aI79X4QVUTQrYZ7AIA3Z2Xzf/77mKWIAajQ=,iv:5q4oin2CxhTeU5WSodtG/gu4efG1AI0nWl0AAPsvwY4=,tag:HlqhVNjtmVtjlR4V5FD6lQ==,type:str]
-    unencrypted_suffix: _unencrypted
-    version: 3.13.3
+  dozzle-agent:
+    command: agent
+    environment:
+      DOZZLE_HOSTNAME: au-hsp
+    image: amir20/dozzle:v10.6.14
+    ports:
+      - 7007:7007
+    restart: unless-stopped
+    secrets:
+      - source: dozzle_cert
+        target: /dozzle_cert.pem
+      - source: dozzle_key
+        target: /dozzle_key.pem
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock:ro

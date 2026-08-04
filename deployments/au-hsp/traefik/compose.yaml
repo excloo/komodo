@@ -1,75 +1,60 @@
 services:
-    traefik:
-        command:
-            - ENC[AES256_GCM,data:d7sej4KWMvZUpEROvM1fpsrodsI=,iv:xgYcwtwOrBwOicb00XI+0wS8FeoTTqw8QNr7in1T1hU=,tag:MjoRi6EXeJCvcU+5MwlImw==,type:str]
-            - ENC[AES256_GCM,data:athnr3jycwTc6wPIc/fg0om+c76LT5ynBpYjcQ70KZG7S97srndsmxSI2Jw0uZH1B4lKEsWgKoGU0g7kMVWuGgfeRoc9SH3Rpei1eYz6ia5SFgP1830=,iv:HE0GP8b4NijaIXDc6+IhN/ZErambd5wL2EQe6WWnOdQ=,tag:2yS8VrigdQxORdfT/f4q2Q==,type:str]
-            - ENC[AES256_GCM,data:0NlgOyiw7HqfxmzvxzRtA1PButcHTkohtIyPJiBo+U3l9jjuqDr/s9o8/ZZsc7/+f/H6zs/BrGqQo+LAwn5YSCxFm4TmpEaRQTJrIRpcJf2hsqli,iv:32zKLxBjD8PqS+0YYrX0BPHOsNbV982W0F557ZQ/vYw=,tag:1Oz1ay71UZW2qkRB1IJYlQ==,type:str]
-            - ENC[AES256_GCM,data:XyruTFsEHjbRgBTP6yg9wUIMEZCJSVycxzwMGXM/vNyTJssQkwS2aza1L8aXzuu1D7oMHTAw0o357DPvd0Tvva+6geOiQxLd,iv:kEvRxcaOqDkezZySx5FNLVrWlDOUJV2FHbKICg6EQTE=,tag:6aFXPGcqyMp+aDZIwOr/+w==,type:str]
-            - ENC[AES256_GCM,data:EIPJpbNDdNw1rUOR2kas3vhDZ1swnW8fiqgxgfzFjEFnXWbo2WLEhTlUdLy6Kka7DzEwPIBE8wGv6IYzMVDEkVagfB/xiqAgQahMLJW372MNpi6O,iv:TxjkOObec80ICho9jNdAS8Yt5rA7kIJC+YTlV0AGk8s=,tag:y2+l/T1ExVKx+NFj27TbnA==,type:str]
-            - ENC[AES256_GCM,data:MwfAIghfl09otfAUQJ4oF6kQhFmJNEuGRHIY1cFl9Bz/PkZz341WesUya04eLbtG944xVXS44l6Etbep,iv:Dib4wVAW21c53UjS/unYWzWXWx5lofHqMSsnQAS3zqQ=,tag:fnHlMveesZZ7a3hwLG7Mwg==,type:str]
-            - ENC[AES256_GCM,data:rtP9TbU09hk+3Kbolkoxf9P/bPouN/AIB4xUEuxstwO37ufC62BlTtwtHEfNRRKFNVCHKdheIcMHeRgobBz2PmvQxNeb7A==,iv:zMCgQyt+LklSH+CjmTY5TRT1nWHP/oo2RwZXqWjscag=,tag:eMAnoA8atpm/f+3FccaC0A==,type:str]
-            - ENC[AES256_GCM,data:hGS3Pt8K9bFzM/RC1O3t3iC5DL5TSpacimRWxZ9pyzt9SSc=,iv:CID/splil09uSgpe9fCAR2ickbCD9bfuNVne2HQM7kk=,tag:Q3P+rhTWGv+l4XZV8y6WZg==,type:str]
-            - ENC[AES256_GCM,data:uw/wNs5L7WII0F0PQscFMHou6OAvycbxfza9be0=,iv:7CHojoPOxMnrWXyYBtBSEzqbrpwDPVrKkmw5sB18v8w=,tag:+WD7PskuGhRSpkVZ3PDMFQ==,type:str]
-            - ENC[AES256_GCM,data:NDyaMYqo11b8GX5r+YyDiT51j5qm1kkrfkvnWjdiRDF+tWEjLnGc,iv:/PWeZ84sPIwn2hmGGO/U/r5b9qNyKiWVNuEXvDSBpOs=,tag:9nXhltbGLez6nraNf4WZ+A==,type:str]
-            - ENC[AES256_GCM,data:Z4tahbKasIdxsl5EJXoDeXOzqWbshJ6vDtzwMN5MDhOnx+Ee,iv:LS1bVAu5rnWUMMQ8/k31p+HI3evYgpPs+5EolUEF8mU=,tag:yUYrVwiCYHKxGvYlmJL7zg==,type:str]
-            - ENC[AES256_GCM,data:/qu9djOmCnf4CyZVjWlSTHDDsPw8aR7g22zz7CYzEpoEZdes/eZtBG0vJ9zHd+cm5G7HuJSWUt8VUWw7,iv:GyuPKwgodR+uuu/4viLerUMe3JFu+y9cv0uSrvH5C7U=,tag:VdvxszwH2euj3ddzQHBO8w==,type:str]
-            - ENC[AES256_GCM,data:NOXXv7IlBVd+xTTahmsZwJg4ETwJ7ZkD4oZuJjxMIO5jr0Xx5ITMOWHrUmvy2YlUK41heRg6eVY=,iv:eOy0I1UMyY3C7Q6QZV9jhMXewZlJxzB3+qACLmVFW/8=,tag:NhtNEbSWEWb8PtdG8o5YHw==,type:str]
-            - ENC[AES256_GCM,data:t2/oCbu4LQDKDVHuqRnQUw6tcSjVVk07wuj2GJCt6B1X9DpK9VW6FnaMChxeCIO5wSWW/QYO01m6rxuUpuL3A2J4,iv:hnm3Xh20UGIraqGfOXmkm1BIdiiM83ilbgjM78Gxhlw=,tag:rutcgGaDFwfkNFT1e7Z+aw==,type:str]
-            - ENC[AES256_GCM,data:huchZdZOfwfdXBbSN6eethg3KMnKahym4WJ1r2sN1c4AseS6hgRySL+Z2Ur3AAXqUtxwNAzmHHsG8yuS8vn9Ew2ayo4=,iv:WTSfc3637ucqtMddlJI291Bh83+qixgdR2dTmp8sj2k=,tag:gCv5wva73yk2Z7CT5qbpsQ==,type:str]
-            - ENC[AES256_GCM,data:/kheMmXoFl/k8NPOI3RNwkIxzfkxLNrV6LJOZFLCy07xMv30uJgBAM7oQ7tTrZBQJAay7as8qAk07p+QLy9mNeC/,iv:GxDLMlvPmZzVv0uONoQsQPAc5Bhu44uA6Bf94avT6LY=,tag:CMW0F9IItVg3/GyLEvkKMA==,type:str]
-            - ENC[AES256_GCM,data:5OjsJI9owGe+XWviLPvy2RdY3fh9IcSUSm6LssKCEiXXVXPGSKDdFmsnly3dfR8yEcWu+yGBvnpW2O141GP1YjrUxqo=,iv:ZaahWIswssbCTghCakwdNIsP4WSenpYNlciollqjq9s=,tag:gThUj33BO/yviNTfgYwVqg==,type:str]
-            - ENC[AES256_GCM,data:sBCBNtw2CYNlp5cNnldXrpgqf+tr8KleuqIVR/8MrRlNliehsIeO0KdAI5T/Ia+CgY7h2Jb4215hIp28mj//lP/Lrfu+e9iajY1LQHXakxvJYXpzHwuL5nYxy7VqcgOejKFAnOrq6jkVG++pzHscH2xMl3OzTQhwuEMx,iv:goQxrvCHLL7EbsJINBtaVKiClFNhg7ivPruLYuhvbOs=,tag:pXvFkRlC6WywDN5BFomcwg==,type:str]
-            - ENC[AES256_GCM,data:VIByzNgZtY59xVySIYMHGABH7a+MC2lLwaSHRUAdyzO1d76+7goVL5w=,iv:MNgD7WfmlK2spsUtbg8dtiagVOoghXyMK0SOcYJMO5I=,tag:On2Upz2HuHacQDKxM4sKdw==,type:str]
-            - ENC[AES256_GCM,data:hgez4hbSGWWqhyLF5CXawTLpFxLO33s=,iv:JCGWVncEOWznkNlmd2/mHumLOSPjijj130YA1iMt5PU=,tag:UDat1XVeGC/YZ246lzWHyQ==,type:str]
-            - ENC[AES256_GCM,data:uRwOQQVDM2bGJXcJ3fAmXWXMDNjRXn4WwmcB8ft+xDsAVU06TDs0/Ze9,iv:/TU/juPYXR3fqKUweuVtMx6WesU9d2EuVBMCYM00p0s=,tag:g7mHRCxenq/t+CZKOlMBzQ==,type:str]
-        environment:
-            CF_DNS_API_TOKEN: ENC[AES256_GCM,data:lRmrPX8IQASj6wEmJ+/Es/yOXF9o2HPk4acLbcF6/f/t/82GNZaBiw==,iv:I3ucoyzWZrc6Z1tRlQ3NfFXYvRD9FdH6FhKVcyQuzBc=,tag:6ULsObS+4iKl6ZaF/ui8uA==,type:str]
-        extra_hosts:
-            - ENC[AES256_GCM,data:6aCLY+eiygsGwp4juH0DARuSTn2slSUxO2WkD7aP,iv:+ulMJvyr9qZuWZ/7PAEA3a4QtjD62zF45bGFE9vL3V8=,tag:rNGmJlpWsl3+GdLHNPPrxA==,type:str]
-        image: ENC[AES256_GCM,data:XcV4LCC2FBtjLz/C+FFm,iv:hZzY0oelMfORjWiH7JGhpNtxXX197SLIMnSMS5RsC/8=,tag:MG6CZ6aVdAdUcvPSULXh1w==,type:str]
-        labels:
-            traefik.enable: ENC[AES256_GCM,data:D2Dt1w==,iv:dB9JJjuiTtdTfHx25uWywKbMQy80NkD9uHlq0njzOlk=,tag:LWjZMMNl1nNF0HZgFLTrFg==,type:str]
-            traefik.http.middlewares.autocompress.compress: ENC[AES256_GCM,data:lKD3MQ==,iv:q/A5Yq4rrVrhcGk/j/o8jUvtwo+9KGZrkfR6gTFcVM8=,tag:+WjnSTZ+cPo6uUN0nmu+cQ==,type:str]
-            traefik.http.middlewares.internal-only.ipallowlist.sourcerange: ENC[AES256_GCM,data:47FDWpRjNEFn2FH5OIFMFCwixEFQY76ehXPDDq6FqrNlcVrnwjhOszX1UE1SAn3BndI1gGrn7Hv2bsYIDphCp5lcK+aUf+MRgd0EXV7yfqEb40bqNmrvJdzQL16OGh2AdreS9YPoAB4b65ok4UOz+H0QiBJ7CxDmNUsTs/4W50/kUukuqcIkP+O1leJeYuVeRAI81wLsrhIh,iv:m+QWf36CJsFThkNkkXlV5uNV283UDq9FFbGiXVB54c8=,tag:LQ8MNWv1sIwSPFN+IISWww==,type:str]
-            traefik.http.middlewares.redirect-to-https.redirectscheme.permanent: ENC[AES256_GCM,data:ec8/DQ==,iv:aSVeqRWniYBuCy6XPmYGZbtmd6GL4i8Sy6g4/n9uRXQ=,tag:j91vMVACjqL/voUgr7eX6g==,type:str]
-            traefik.http.middlewares.redirect-to-https.redirectscheme.scheme: ENC[AES256_GCM,data:NISEGr0=,iv:GZue1t4uqD6Vn6zC+ZfuwZlD/Z27SXXlsFd6tAcBgW8=,tag:L1NZ94+PidQkgGtutwIaSA==,type:str]
-            traefik.http.middlewares.traefik-monitoring.basicauth.headerfield: ENC[AES256_GCM,data:VRWGROEl14WSveX+TghQdK5Xig==,iv:jRVJjRUt93BsGJ7Zy45PeCQgJkDai060H8dy56gHrhc=,tag:V/B5Vm0fzyIZa/pnrSo+3A==,type:str]
-            traefik.http.middlewares.traefik-monitoring.basicauth.removeheader: ENC[AES256_GCM,data:lAMUYw==,iv:MNcy6Cm/KKwLisqNIRXK0W0i2Dr4SBxUtLsrK6FAmhc=,tag:PJ+70eZwGr530JCv1gkGNQ==,type:str]
-            traefik.http.middlewares.traefik-monitoring.basicauth.users: ENC[AES256_GCM,data:cwiXcN/whiAu1OsX3vkdBpYaJIwQW8BJ/42thda5fIam+TxN9cxFXv8Rd7WOM6tCiUmchm6iOnyH3HICUBUAeavmmjYNhmTeDtg=,iv:FZWbWkZ6fY3JmGSo11mhdzzOtNrISEdmX26wyB7bPKU=,tag:4VNZQpQ7DKeM5bOdtfbaOg==,type:str]
-            traefik.http.routers.traefik-http.entrypoints: ENC[AES256_GCM,data:/DcO,iv:CzVuw+eJo50t7AgAu50yB8tYjONwp0daGSNL3FbZcQs=,tag:Fx+190BIh2GF1M9OM2BlZw==,type:str]
-            traefik.http.routers.traefik-http.middlewares: ENC[AES256_GCM,data:Axp/paV/4fEf7pwI0p3lh/iprTibHRNfhn2Ttpyu1rUVYarmIg7DxiZqRv+O,iv:F+jSfjh5MJfMea0jEoZklUl/wrw/40vWtkXyJWnuXoE=,tag:7h75hWCBof1U+aah2KtLdw==,type:str]
-            traefik.http.routers.traefik-http.rule: ENC[AES256_GCM,data:1dY+M2LRa8PPTqyQT2EV6yNU/jDUX7o7xCFKiVjQ1Zhw,iv:FAgvNYTdOVBF6vgz6iFhhHlsOkjAWMbPv6m2vCZS3cM=,tag:H0ZLcgiA1AHsb5q1awRG6A==,type:str]
-            traefik.http.routers.traefik-http.service: ENC[AES256_GCM,data:hoAL0F3lSg==,iv:FAdqHHBIkvIiilw4xkQ/r7/4nCZva6dS9qTxLFssgCI=,tag:vLi4BZQy+J0gLasW0k+/oQ==,type:str]
-            traefik.http.routers.traefik-monitoring.entrypoints: ENC[AES256_GCM,data:Jdk+VmMUNiiy,iv:UzVLD/1lkf9eYq/ssBwkkxfAvGrPZoBD4dJzCdkVPSk=,tag:k4H8lSgI4gPge/rzHnTZuA==,type:str]
-            traefik.http.routers.traefik-monitoring.middlewares: ENC[AES256_GCM,data:5ImnS3qO+/G9MSimKxj0f7tbCSMgVzBwHanzKa3o0BQVVAtPFuQRJg4PPvQLbQ==,iv:1IFQ2Rs0+nRtYb5TbZ/FK2AT6i8ijIxuzMmJKDMhMzY=,tag:JV7GSz1MV/inyz0tn4nfPA==,type:str]
-            traefik.http.routers.traefik-monitoring.rule: ENC[AES256_GCM,data:niGxYJJE1yXP7gQpKy3Wygg6xPMbin2LCIAQ6QhG4K0MHrb0Ynl8O537sMzgwmauAd6/+0K4/qWuUPUHVQkUxiUh8GZmVHtrueRkoS4=,iv:9b8dqEnlufXk6YKArlj6jexsK7Z8dUEQfDzYCRQj3tM=,tag:aKef/iWCMvYnyp2NCOpRxA==,type:str]
-            traefik.http.routers.traefik-monitoring.service: ENC[AES256_GCM,data:6VfmUw5k0nlCSsT4,iv:UKPV2VPTNnLV4bEli62gw6xUynScJiozHzh+Yukxd4I=,tag:N/FPaHQpFmnl37I9mFYGvQ==,type:str]
-            traefik.http.routers.traefik-monitoring.tls.certresolver: ENC[AES256_GCM,data:av4oMpTI4zOaQw==,iv:pqwfNTBu8lQvVCiqO42MKmwmD9+Q2h2kP2sQ/14MCe8=,tag:aStBYRJjuhDy/uYSR/B/TQ==,type:str]
-            traefik.http.routers.traefik.entrypoints: ENC[AES256_GCM,data:Oe0TlWZu8CvX,iv:fphkhnh4Y7CmkHa46nZtQOndNVLg/75kqp2k8GO4XEg=,tag:+bnHR8l2Jx3p3hryT+ZBlg==,type:str]
-            traefik.http.routers.traefik.middlewares: ENC[AES256_GCM,data:ThRIja7SJRvo6MF5L2Yfhf5WXffkfhkA5kB64vZ51MCFPNXy80op1vEw1OzVzVw=,iv:mHP4X5CmuvOewfQ7ZbuRTpKY+3hDX8D12IoXrlF2LAI=,tag:IS24CBAv5cvp9SEkzjczxQ==,type:str]
-            traefik.http.routers.traefik.rule: ENC[AES256_GCM,data:TPx5Nl0zWGUxuVKAy68MHqeqStVE/ZNWeEk1POSZI79M,iv:bTh7bzX6wzffAql0GfJuzOb1dRUhqU4S8v1XhBF59iQ=,tag:EHnvffEl29+l1w6GvrG3Xg==,type:str]
-            traefik.http.routers.traefik.service: ENC[AES256_GCM,data:suDroBeNYU0e03Ho,iv:5pyDRJrKw+1PEOVyyz011Iu6ldrNYThi1SQNMwr7hjc=,tag:EUh+g0Au6f6NRAWFjUK5hg==,type:str]
-            traefik.http.routers.traefik.tls.certresolver: ENC[AES256_GCM,data:B1do0IIJkaGqmA==,iv:pWZ2pl8Wi51WfZfKqV2P1fAfR5TDVYh0p6n1FB134YU=,tag:I0JeCB51aWQhTt4j+YPL9w==,type:str]
-            traefik.http.services.traefik.loadbalancer.server.port: ENC[AES256_GCM,data:Xb1w0Q==,iv:5s0qXsTJ88x6zYlMSuk1OFpfs9wUxG5IQCz+T2buHfU=,tag:F/GNeuVTwfEoTOsMXnerJg==,type:str]
-        network_mode: ENC[AES256_GCM,data:E2w1IQ==,iv:hxYJOPry6Ko7lSUcdbRO72VDHl9gThzwyFIf4omxTyg=,tag:FQLoRJfxXcxcqhhMsBXL3Q==,type:str]
-        restart: ENC[AES256_GCM,data:KI/borDU3s6bxWzh15g=,iv:qtgT2xRfBOxwnEAkhyuQg5Xv1rnQPXnPGmPTHKf+Nx8=,tag:ctYtWNF/laBaWAPA1DGwiw==,type:str]
-        volumes:
-            - ENC[AES256_GCM,data:L9MzVGQrsPEkkpHwY2QW+8TadH5vpV7/E5qJPOeJaPJv+O/oaZs8kjX3B38=,iv:kvOpK3wV/VVWQpVrOJYPf8igwnrdCI2y1V67vdVwSUA=,tag:5kzfpaVOLaNfZZBjBpcvEw==,type:str]
-            - ENC[AES256_GCM,data:Gn9k5UE0v/MDjzN0vnfmMmq0cYL8ARMt,iv:FG5eHpy/6GPu1ZXrOoluht+M0rcUBYijq0vblvvT6fs=,tag:81A4mtJQ//QHhTVlpSHeoA==,type:str]
+  traefik:
+    command:
+      - --api.dashboard=true
+      - --certificatesresolvers.cloudflare.acme.dnschallenge.propagation.delayBeforeChecks=10s
+      - --certificatesresolvers.cloudflare.acme.dnschallenge.propagation.requireAllRNS=false
+      - --certificatesresolvers.cloudflare.acme.dnschallenge.provider=cloudflare
+      - --certificatesresolvers.cloudflare.acme.dnschallenge.resolvers=1.1.1.1:53,8.8.8.8:53
+      - --certificatesresolvers.cloudflare.acme.email=max@excloo.com
+      - --certificatesresolvers.cloudflare.acme.storage=/letsencrypt/acme.json
+      - --entrypoints.traefik.address=:8082
+      - --entrypoints.web.address=:80
+      - --entrypoints.webinternal.address=:8000
+      - --entrypoints.websecure.address=:443
+      - --entrypoints.websecure.http.middlewares=autocompress@docker
+      - --entrypoints.websecure.http.tls.certResolver=cloudflare
+      - --entrypoints.websecure.http.tls.domains[0].main=hsp.au.excloo.net
+      - --entrypoints.websecure.http.tls.domains[0].sans=*.hsp.au.excloo.net
+      - --entrypoints.websecure.http.tls.domains[1].main=hsp.au.excloo.dev
+      - --entrypoints.websecure.http.tls.domains[1].sans=*.hsp.au.excloo.dev
+      - --providers.docker.defaultRule=Host(`{{ index .Labels "com.docker.compose.project" | trimPrefix "ix-"}}.hsp.au.excloo.dev`)
+      - --providers.docker.exposedbydefault=false
+      - --providers.docker=true
+      - --serverstransport.insecureskipverify=true
+    environment:
+      CF_DNS_API_TOKEN: ${CF_DNS_API_TOKEN}
+    extra_hosts:
+      - host.docker.internal:127.0.0.1
+    image: traefik:v3.7.10
+    labels:
+      traefik.enable: "true"
+      traefik.http.middlewares.autocompress.compress: "true"
+      traefik.http.middlewares.internal-only.ipallowlist.sourcerange: 10.0.0.0/22, 10.4.0.0/22, 100.64.0.0/10, 127.0.0.1/32, 172.16.0.0/12, ::1/128, 2401:dc20:21ac::/64, 2401:dc20:21ac:3::/64, fd7a:115c:a1e0::/48, fdd0::/48
+      traefik.http.middlewares.redirect-to-https.redirectscheme.permanent: "true"
+      traefik.http.middlewares.redirect-to-https.redirectscheme.scheme: https
+      traefik.http.middlewares.traefik-monitoring.basicauth.headerfield: X-Auth-Request-User
+      traefik.http.middlewares.traefik-monitoring.basicauth.removeheader: "true"
+      traefik.http.middlewares.traefik-monitoring.basicauth.users: ${MONITORING_PASSWORD_HASH}
+      traefik.http.routers.traefik-http.entrypoints: web
+      traefik.http.routers.traefik-http.middlewares: internal-only@docker,redirect-to-https@docker
+      traefik.http.routers.traefik-http.rule: Host(`traefik.hsp.au.excloo.dev`)
+      traefik.http.routers.traefik-http.service: traefik
+      traefik.http.routers.traefik-monitoring.entrypoints: websecure
+      traefik.http.routers.traefik-monitoring.middlewares: internal-only@docker,traefik-monitoring@docker
+      traefik.http.routers.traefik-monitoring.rule: Host(`traefik.hsp.au.excloo.dev`) && HeaderRegexp(`Authorization`, `^Basic `)
+      traefik.http.routers.traefik-monitoring.service: api@internal
+      traefik.http.routers.traefik-monitoring.tls.certresolver: cloudflare
+      traefik.http.routers.traefik.entrypoints: websecure
+      traefik.http.routers.traefik.middlewares: internal-only@docker,oauth2-forward-auth@docker
+      traefik.http.routers.traefik.rule: Host(`traefik.hsp.au.excloo.dev`)
+      traefik.http.routers.traefik.service: api@internal
+      traefik.http.routers.traefik.tls.certresolver: cloudflare
+      traefik.http.services.traefik.loadbalancer.server.port: "8082"
+    network_mode: host
+    restart: unless-stopped
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock:ro
+      - letsencrypt:/letsencrypt
 volumes:
-    letsencrypt: null
-sops:
-    age:
-        - enc: |
-            -----BEGIN AGE ENCRYPTED FILE-----
-            YWdlLWVuY3J5cHRpb24ub3JnL3YxCi0+IFgyNTUxOSBsOGt2YlJlYldSZlgxNlhG
-            VGovZ1l2V1ZIZFE2dHM0SjJPZ0FlTGRCSDFRCm9ZSnZWZlUwREhpVGFxaTdhT0JZ
-            Q0NIdHU5elFLdnh1bytIWjFMVzJtTEUKLS0tICtoZjh6YnpEejZaYnVyWGZUbkVs
-            d2NFQWx3NVNkNDZZbkd6UXpnaFdnZzAKed6NZySSrpXbw4iVsbLTGcGfUUNVmevt
-            fS3Zv69Ung3Nrgsy9JO5+6tzHc6N22UuR1Gb+Ps9Xiwihft89qv8JQ==
-            -----END AGE ENCRYPTED FILE-----
-          recipient: age1heqmzgcj5d2fe7c96leq9kqm6vc4mqhpn94d685q3px9utzlq98q2tv268
-    lastmodified: "2026-08-03T20:46:31Z"
-    mac: ENC[AES256_GCM,data:OJ91ZVSwlrvQwBOfDXVj+/NRqeiai+iPWsyNIXSwxDlzfXqztY9vzJG5ABCa93aGPD9F71mdz/ilDu+G+PrrkjeVL3lyKZBhRTuSUOXjylUZi+Dy3s2xYLPdSsgNA+wtj+jRRjXEbYRXdPug06tktURKdwFTPmIHrd+m5yIXrRc=,iv:6IXmcD+9scg8pF555atPR272ulfGM3J55h6DiQQrwJA=,tag:mPK7Fa0URET+j5lDzdd3cQ==,type:str]
-    unencrypted_suffix: _unencrypted
-    version: 3.13.3
+  letsencrypt:
