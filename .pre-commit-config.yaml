@@ -34,7 +34,8 @@ repos:
         args:
           - --failure-threshold
           - error
-        files: (^|/)(Dockerfile(?:\..*)?|[^/]+\.Dockerfile)$
+        types:
+          - dockerfile
       - id: prettier
         name: Check formatting
         entry: mise exec -- prettier --check
