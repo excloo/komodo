@@ -6,7 +6,6 @@ import subprocess
 from pathlib import Path
 
 IDENTITY_PATTERN = re.compile(r"^[a-z0-9]+(?:-[a-z0-9]+)*$")
-SERVICES_PATH = Path("templates/services")
 
 
 def content_type(path):
@@ -46,7 +45,7 @@ def encrypt(content, recipient, output_type):
 
 
 def render_deployment(config, deployment, target, output_root):
-    service_path = SERVICES_PATH / deployment["service"]
+    service_path = Path(deployment["service"])
     if not service_path.is_dir():
         raise FileNotFoundError(f"Service not found: {deployment['service']}")
 

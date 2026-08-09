@@ -2,7 +2,7 @@
 
 ## Structure
 
-- Keep each service implementation in `templates/services/<service>/`.
+- Keep each service implementation in `/<service>/` at the repository root.
 - Put each rendered service at `/<service>/` in its target-specific OCI package.
 - Keep repository tooling generic; adding a service must not require changing shared workflow logic.
 - Treat `.render/` and OCI packages as pipeline output.
