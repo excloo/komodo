@@ -29,13 +29,13 @@ services:
     extra_hosts:
       - host.docker.internal:127.0.0.1
     image: traefik:v3.7.10
-    {{- if or $deployment.labels $deployment.custom.proxy_routes }}
+    {{- if or $deployment.labels $deployment.custom.traefik.proxy_routes }}
     labels:
       {{- if $deployment.labels }}
       {{- $labels := $deployment.labels | toYAML | strings.TrimSpace }}
       {{- printf "\n%s" ($labels | strings.Indent 6) }}
       {{- end }}
-      {{- range $name, $route := $deployment.custom.proxy_routes }}
+      {{- range $name, $route := $deployment.custom.traefik.proxy_routes }}
       traefik.http.routers.{{ $name }}.entryPoints: websecure
       traefik.http.routers.{{ $name }}.rule: 'Host(`{{ $route.host }}`)'
         {{- if $route.redirect_to }}

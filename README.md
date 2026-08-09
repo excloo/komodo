@@ -10,3 +10,7 @@ deploys them locally without a 1Password credential or remote Docker access.
 
 Service source lives under `templates/services/`. Generated output exists only
 in the pipeline and places each service directly at its OCI artifact root.
+
+The renderer accepts Docker config v2. Service-wide generated settings are
+provided on each deployment under `custom.<service>`; v1 remains readable during
+the rollout.
