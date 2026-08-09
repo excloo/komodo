@@ -94,18 +94,6 @@ def render_metadata(target, output_root):
     )
 
 
-def normalize_config(config):
-    version = config.get("version")
-    if version == 1:
-        config = dict(config)
-        config["deployments"] = [
-            deployment | {"custom": {"traefik": deployment.get("custom", {})}}
-            for deployment in config["deployments"]
-        ]
-        config["version"] = 2
-    return config
-
-
 def validate(config):
     if config.get("repository") != "docker" or config.get("version") != 2:
         raise ValueError("Expected Docker config version 2")
@@ -135,7 +123,7 @@ def validate(config):
 
 
 def main():
-    config = normalize_config(json.loads(os.environ["CONFIG"]))
+    config = json.loads(os.environ["CONFIG"])
     output_root = Path(".render")
     target_key = os.environ["TARGET"]
     validate(config)
