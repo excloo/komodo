@@ -1,19 +1,49 @@
 # Homelab Docker
 
-Docker Compose service implementations and deployment templates live in this
-repository. The homelab config supplies non-secret deployment instances and
-programmatic 1Password references.
+This repository owns the Docker Compose implementations deployed by the
+[homelab](https://github.com/maxexcloo/homelab) configuration. Each service
+lives in a root-level directory containing its Compose templates and supporting
+files.
 
-GitHub Actions renders target-specific OCI packages and SOPS-encrypts every
-deployment file with the target's age recipient. Doco-cd pulls, decrypts, and
-deploys them locally without a 1Password credential or remote Docker access.
+Deployments are published as target-specific OCI packages. They contain
+SOPS-encrypted configuration that doco-cd can pull, decrypt, and reconcile
+locally without remote Docker access or a 1Password credential.
 
-Each service's source directory lives at the repository root. Generated output
-exists only in the pipeline and places each service directly at its OCI artefact
-root.
+## Deployment Flow
 
-The renderer accepts Docker config v2. Service-wide generated settings are
-provided on each deployment under `custom.<service>`.
+1. The homelab repository publishes non-secret Docker config v2 through the
+   `CONFIG` repository variable.
+2. GitHub Actions renders each configured target, resolves its `op://`
+   references, and encrypts every deployment file with the target's age
+   recipient. Doco-cd discovery metadata remains readable.
+3. The workflow publishes one OCI package per target to GHCR, tagged with both
+   the commit revision and `main`.
+4. Doco-cd pulls the package and reconciles the services on that target.
+
+## Repository Layout
+
+- `<service>/` — Compose templates and service-owned files.
+- `.github/scripts/render.py` — validates Docker config and renders encrypted
+  target packages.
+- `.github/workflows/render.yaml` — checks, renders, and publishes packages.
+- `.render/` — ephemeral rendered output; never committed.
+
+Files ending in `.tmpl` are rendered with gomplate. The deployment context is
+available through `DEPLOYMENT`, with service-wide generated settings under
+`custom.<service>`.
+
+## Development
+
+```bash
+mise run setup    # Install Git hooks
+mise run check    # Run all repository checks
+mise run fmt      # Format supported files
+mise run cleanup  # Remove generated output and caches
+```
+
+To add a service, create its root directory, add the required templates, and
+configure its deployment in the homelab repository. Shared rendering and
+workflow code should not require service-specific changes.
 
 ## Licence
 
