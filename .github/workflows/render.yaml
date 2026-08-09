@@ -26,7 +26,7 @@ jobs:
       - name: Set up tools
         uses: jdx/mise-action@v4
         with:
-          version: 2026.8.1
+          version: 2026.8.3
       - name: Run checks
         run: mise run check
 
@@ -49,7 +49,7 @@ jobs:
       - name: Set up tools
         uses: jdx/mise-action@v4
         with:
-          version: 2026.8.1
+          version: 2026.8.3
       - name: Render
         env:
           OP_SERVICE_ACCOUNT_TOKEN: ${{ secrets.OP_SERVICE_ACCOUNT_TOKEN }}
