@@ -17,9 +17,9 @@
 ## Style
 
 - Keep Python helpers and constants sorted; keep `main()` and its execution guard last.
+- Prefer direct code and standard tools over repository-specific abstractions.
 - Sort mise tools, tasks, workflow structure, Renovate rules, and Prek hooks consistently with the homelab repository.
 - Use `.yaml`, never `.yml`.
-- Prefer direct code and standard tools over repository-specific abstractions.
 
 ## Verification
 
