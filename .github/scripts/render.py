@@ -94,8 +94,8 @@ def render_metadata(target, output_root):
 
 
 def validate(config):
-    if config.get("repository") != "docker" or config.get("version") != 2:
-        raise ValueError("Expected Docker config version 2")
+    if config.get("repository") != "docker":
+        raise ValueError("Expected Docker config")
 
     deployments = config["deployments"]
     targets = config["targets"]
