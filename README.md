@@ -22,11 +22,11 @@ locally without remote Docker access or a 1Password credential.
 
 ## Repository Layout
 
+- `.render/` — ephemeral rendered output; never committed.
 - `<service>/` — Compose templates and service-owned files.
 - `.github/scripts/render.py` — validates Docker config and renders encrypted
   target packages.
 - `.github/workflows/publish.yaml` — checks, renders, and publishes packages.
-- `.render/` — ephemeral rendered output; never committed.
 
 Files ending in `.tmpl` are rendered with gomplate. The deployment context is
 available through `DEPLOYMENT`, with service-wide generated settings under
