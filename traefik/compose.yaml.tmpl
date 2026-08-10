@@ -46,7 +46,7 @@ services:
       traefik.http.routers.{{ $name }}.service: noop@internal
         {{- else }}
       traefik.http.routers.{{ $name }}.service: {{ $name }}
-      traefik.http.services.{{ $name }}.loadbalancer.server.url: {{ $route.backend_url }}
+      traefik.http.services.{{ $name }}.loadbalancer.server.url: {{ $route.backend.href }}
         {{- end }}
       {{- end }}
     {{- end }}

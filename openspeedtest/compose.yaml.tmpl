@@ -4,7 +4,7 @@ services:
   openspeedtest:
     environment:
       CHANGE_CONTAINER_PORTS: "True"
-      HTTP_PORT: {{ $deployment.routing.backend_port }}
+      HTTP_PORT: {{ $deployment.backend.port }}
     image: openspeedtest/latest:v2.0.6
     {{- if $deployment.labels }}
     labels:
