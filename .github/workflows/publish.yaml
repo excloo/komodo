@@ -8,7 +8,6 @@ on:
 
 permissions:
   contents: read
-  packages: write
 
 concurrency:
   cancel-in-progress: false
@@ -33,6 +32,9 @@ jobs:
   publish:
     name: Publish ${{ matrix.target.key }}
     needs: check
+    permissions:
+      contents: read
+      packages: write
     runs-on: ubuntu-latest
     strategy:
       fail-fast: false
@@ -54,7 +56,7 @@ jobs:
         env:
           OP_SERVICE_ACCOUNT_TOKEN: ${{ secrets.OP_SERVICE_ACCOUNT_TOKEN }}
         run: uv run --no-project .github/scripts/render.py
-      - name: Login to GHCR
+      - name: Log in to GHCR
         uses: docker/login-action@v4
         with:
           password: ${{ secrets.GITHUB_TOKEN }}
