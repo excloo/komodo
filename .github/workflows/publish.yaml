@@ -4,6 +4,8 @@ on:
   push:
     branches:
       - main
+    paths-ignore:
+      - "**.md"
   workflow_dispatch:
 
 permissions:
@@ -14,8 +16,12 @@ concurrency:
   group: publish-main
 
 jobs:
+  check:
+    uses: ./.github/workflows/prek.yaml
+
   publish:
     if: github.ref == 'refs/heads/main'
+    needs: check
     name: Publish ${{ matrix.target.key }}
     permissions:
       contents: read
@@ -37,7 +43,7 @@ jobs:
         uses: jdx/mise-action@v4
         with:
           install_args: 1password-cli gomplate sops uv
-          version: 2026.8.3
+          version: 2026.8.4
       - name: Render
         env:
           OP_SERVICE_ACCOUNT_TOKEN: ${{ secrets.OP_SERVICE_ACCOUNT_TOKEN }}

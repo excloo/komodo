@@ -10,7 +10,7 @@ services:
     command: agent
     environment:
       DOZZLE_HOSTNAME: {{ $deployment.target }}
-    image: amir20/dozzle:v10.6.14
+    image: amir20/dozzle:v10.7.1
     ports:
       - 7007:7007
     restart: unless-stopped
