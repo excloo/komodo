@@ -1,5 +1,6 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "dependencyDashboard": false,
   "extends": ["config:recommended", ":enablePreCommit"],
   "customManagers": [
     {
@@ -11,18 +12,6 @@
         "(?:^|\\r?\\n)\\s*image:\\s*(?<depName>[^\\s:@]+(?:/[^\\s:@]+)*):(?<currentValue>[^\\s@#]+)"
       ],
       "versioningTemplate": "docker"
-    }
-  ],
-  "packageRules": [
-    {
-      "description": "Group minor updates",
-      "groupName": "Minor updates",
-      "matchUpdateTypes": ["minor"]
-    },
-    {
-      "description": "Group patch and pin updates",
-      "groupName": "Patch and pin updates",
-      "matchUpdateTypes": ["patch", "pin"]
     }
   ]
 }
