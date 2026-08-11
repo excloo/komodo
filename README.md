@@ -11,7 +11,7 @@ locally without remote Docker access or a 1Password credential.
 
 ## Deployment Flow
 
-1. The homelab repository publishes non-secret Docker config v2 through the
+1. The homelab repository publishes non-secret Docker configuration through the
    `CONFIG` repository variable.
 2. GitHub Actions renders each configured target, resolves its `op://`
    references, and encrypts every deployment file with the target's age
@@ -26,7 +26,7 @@ locally without remote Docker access or a 1Password credential.
 - `<service>/` — Compose templates and service-owned files.
 - `.github/scripts/render.py` — validates Docker config and renders encrypted
   target packages.
-- `.github/workflows/publish.yaml` — checks, renders, and publishes packages.
+- `.github/workflows/publish.yaml` — renders and publishes packages from `main`.
 
 Files ending in `.tmpl` are rendered with gomplate. The deployment context is
 available through `DEPLOYMENT`, with service-wide generated settings under

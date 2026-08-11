@@ -1,11 +1,34 @@
+import argparse
 import json
 import os
 import re
 import shutil
 import subprocess
 from pathlib import Path
+from tempfile import TemporaryDirectory
 
 IDENTITY_PATTERN = re.compile(r"^[a-z0-9]+(?:-[a-z0-9]+)*$")
+
+
+def check_deployments(config):
+    targets = {target["key"]: target for target in config["targets"]}
+    with TemporaryDirectory() as directory:
+        output_root = Path(directory)
+        for deployment in sorted(config["deployments"], key=lambda item: item["key"]):
+            target = targets[deployment["target"]]
+            render_deployment(
+                config,
+                deployment,
+                target,
+                output_root,
+                encrypt_files=False,
+            )
+            destination_root = output_root / target["key"] / deployment["service"]
+            command = ["docker", "compose"]
+            if (destination_root / ".env").is_file():
+                command.extend(["--env-file", ".env"])
+            command.extend(["-f", "compose.yaml", "config", "--quiet"])
+            subprocess.run(command, check=True, cwd=destination_root)
 
 
 def content_type(path):
@@ -15,13 +38,12 @@ def content_type(path):
 
 
 def encrypt(content, recipient, output_type):
-    if "{{ op://" in content:
+    if b"{{ op://" in content:
         content = subprocess.run(
             ["op", "inject"],
             check=True,
             input=content,
             stdout=subprocess.PIPE,
-            text=True,
         ).stdout
     return subprocess.run(
         [
@@ -40,11 +62,10 @@ def encrypt(content, recipient, output_type):
         check=True,
         input=content,
         stdout=subprocess.PIPE,
-        text=True,
     ).stdout
 
 
-def render_deployment(config, deployment, target, output_root):
+def render_deployment(config, deployment, target, output_root, encrypt_files=True):
     service_path = Path(deployment["service"])
     if not service_path.is_dir():
         raise FileNotFoundError(f"Service not found: {deployment['service']}")
@@ -65,19 +86,20 @@ def render_deployment(config, deployment, target, output_root):
             content = subprocess.check_output(
                 ["gomplate", "--file", source],
                 env=environment,
-                text=True,
             )
         else:
-            content = source.read_text()
+            content = source.read_bytes()
 
         destination = destination_root / relative_path
         destination.parent.mkdir(parents=True, exist_ok=True)
         if destination.name == ".doco-cd.yaml":
-            destination.write_text(content)
-        else:
-            destination.write_text(
+            destination.write_bytes(content)
+        elif encrypt_files:
+            destination.write_bytes(
                 encrypt(content, target["age_public_key"], content_type(destination))
             )
+        else:
+            destination.write_bytes(content)
 
 
 def render_metadata(target, output_root):
@@ -109,6 +131,9 @@ def validate(config):
     target_keys = {target["key"] for target in targets}
     if any(deployment["target"] not in target_keys for deployment in deployments):
         raise ValueError("Deployment has no target")
+    deployment_target_keys = {deployment["target"] for deployment in deployments}
+    if target_keys - deployment_target_keys:
+        raise ValueError("Target has no deployments")
 
     service_paths = [
         f"{deployment['target']}/{deployment['service']}" for deployment in deployments
@@ -122,11 +147,17 @@ def validate(config):
 
 
 def main():
+    parser = argparse.ArgumentParser()
+    parser.add_argument("--check", action="store_true")
+    args = parser.parse_args()
     config = json.loads(os.environ["CONFIG"])
+    validate(config)
+    if args.check:
+        check_deployments(config)
+        return
+
     output_root = Path(".render")
     target_key = os.environ["TARGET"]
-    validate(config)
-
     targets = {target["key"]: target for target in config["targets"]}
     if target_key not in targets:
         raise ValueError(f"Target not found: {target_key}")
