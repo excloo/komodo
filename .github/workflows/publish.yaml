@@ -17,6 +17,7 @@ concurrency:
 
 jobs:
   check:
+    name: Prek
     uses: ./.github/workflows/prek.yaml
 
   publish:
