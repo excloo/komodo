@@ -4,11 +4,12 @@ services:
   openspeedtest:
     environment:
       CHANGE_CONTAINER_PORTS: "True"
-      HTTP_PORT: {{ $deployment.backend.port }}
+      HTTP_PORT: {{ $deployment.service.routing.default.backend.port }}
     image: openspeedtest/latest:v2.0.6
-    {{- if $deployment.labels }}
+    {{- $labels := index $deployment.routing_labels "openspeedtest" }}
+    {{- if $labels }}
     labels:
-      {{- $labels := $deployment.labels | toYAML | strings.TrimSpace }}
-      {{- printf "\n%s" ($labels | strings.Indent 6) }}
+      {{- $yaml := $labels | toYAML | strings.TrimSpace }}
+      {{- printf "\n%s" ($yaml | strings.Indent 6) }}
     {{- end }}
     restart: unless-stopped

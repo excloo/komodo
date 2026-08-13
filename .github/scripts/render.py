@@ -11,19 +11,17 @@ IDENTITY_PATTERN = re.compile(r"^[a-z0-9]+(?:-[a-z0-9]+)*$")
 
 
 def check_deployments(config):
-    targets = {target["key"]: target for target in config["targets"]}
     with TemporaryDirectory() as directory:
         output_root = Path(directory)
         for deployment in sorted(config["deployments"], key=lambda item: item["key"]):
-            target = targets[deployment["target"]]
             render_deployment(
-                config,
                 deployment,
-                target,
                 output_root,
                 encrypt_files=False,
             )
-            destination_root = output_root / target["key"] / deployment["service"]
+            destination_root = (
+                output_root / deployment["target"] / deployment["template"]
+            )
             command = ["docker", "compose"]
             if (destination_root / ".env").is_file():
                 command.extend(["--env-file", ".env"])
@@ -65,15 +63,14 @@ def encrypt(content, recipient, output_type):
     ).stdout
 
 
-def render_deployment(config, deployment, target, output_root, encrypt_files=True):
-    service_path = Path(deployment["service"])
+def render_deployment(deployment, output_root, encrypt_files=True):
+    service_path = Path(deployment["template"])
     if not service_path.is_dir():
-        raise FileNotFoundError(f"Service not found: {deployment['service']}")
+        raise FileNotFoundError(f"Service not found: {deployment['template']}")
 
-    destination_root = output_root / target["key"] / deployment["service"]
-    context = dict(deployment, target_config=target, vaults=config["vaults"])
+    destination_root = output_root / deployment["target"] / deployment["template"]
     environment = os.environ | {
-        "DEPLOYMENT": json.dumps(context, separators=(",", ":"))
+        "DEPLOYMENT": json.dumps(deployment, separators=(",", ":"))
     }
 
     for source in sorted(service_path.rglob("*")):
@@ -96,14 +93,18 @@ def render_deployment(config, deployment, target, output_root, encrypt_files=Tru
             destination.write_bytes(content)
         elif encrypt_files:
             destination.write_bytes(
-                encrypt(content, target["age_public_key"], content_type(destination))
+                encrypt(
+                    content,
+                    deployment["server"]["age_public_key"],
+                    content_type(destination),
+                )
             )
         else:
             destination.write_bytes(content)
 
 
 def render_metadata(target, output_root):
-    (output_root / target["key"] / ".doco-cd.yaml").write_text(
+    (output_root / target / ".doco-cd.yaml").write_text(
         "version: doco.v1\n"
         "working_dir: .\n\n"
         "auto_discovery:\n"
@@ -136,12 +137,12 @@ def validate(config):
         raise ValueError("Target has no deployments")
 
     service_paths = [
-        f"{deployment['target']}/{deployment['service']}" for deployment in deployments
+        f"{deployment['target']}/{deployment['template']}" for deployment in deployments
     ]
     if len(service_paths) != len(set(service_paths)):
         raise ValueError("Duplicate service on target")
     if not all(
-        IDENTITY_PATTERN.fullmatch(deployment["service"]) for deployment in deployments
+        IDENTITY_PATTERN.fullmatch(deployment["template"]) for deployment in deployments
     ):
         raise ValueError("Invalid service identity")
 
@@ -161,15 +162,13 @@ def main():
     targets = {target["key"]: target for target in config["targets"]}
     if target_key not in targets:
         raise ValueError(f"Target not found: {target_key}")
-    target = targets[target_key]
-
     shutil.rmtree(output_root / target_key, ignore_errors=True)
     (output_root / target_key).mkdir(parents=True)
-    render_metadata(target, output_root)
+    render_metadata(target_key, output_root)
 
     for deployment in sorted(config["deployments"], key=lambda item: item["key"]):
         if deployment["target"] == target_key:
-            render_deployment(config, deployment, target, output_root)
+            render_deployment(deployment, output_root)
 
 
 if __name__ == "__main__":

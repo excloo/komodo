@@ -29,8 +29,7 @@ locally without remote Docker access or a 1Password credential.
 - `.github/workflows/publish.yaml` — renders and publishes packages from `main`.
 
 Files ending in `.tmpl` are rendered with gomplate. The deployment context is
-available through `DEPLOYMENT`, with service-wide generated settings under
-`custom.<service>`.
+available through `DEPLOYMENT`.
 
 ## Development
 

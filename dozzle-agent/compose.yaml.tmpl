@@ -9,10 +9,10 @@ services:
   dozzle-agent:
     command: agent
     environment:
-      DOZZLE_HOSTNAME: {{ $deployment.target }}
+      DOZZLE_HOSTNAME: {{ $deployment.server.key }}
     image: amir20/dozzle:v10.7.1
     ports:
-      - 7007:7007
+      - {{ $deployment.server.runtime.addresses.tailscale_ipv4 }}:7007:7007
     restart: unless-stopped
     secrets:
       - source: dozzle_cert
